@@ -9,7 +9,11 @@ const UpgradeContainer = (props) => {
     return(
         <div className="upgrade-container">
             UpgradeContainer
-            <Upgrade name={"bone-shovel"} cost={1} src={""} />
+            <Upgrade name={"bone-shovel"} 
+                // cost={1} 
+                src={""} 
+                setIdleBones = {props.setIdleBones}
+                increase = {2}     />
             {/* {upgrades} */}
         </div>
     )
