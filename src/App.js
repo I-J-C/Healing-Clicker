@@ -7,7 +7,7 @@ import { useState } from 'react';
 
 function App() {
 
-  const [saveLoaded, setSaveLoaded] = useState(false);
+  // const [saveLoaded, setSaveLoaded] = useState(false);
   const [bones, setBones] = useState(0);
   const [clickAmount, setClickAmount] = useState(1);
   const [idleBones, setIdleBones] = useState(0);
