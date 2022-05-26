@@ -1,20 +1,20 @@
 import Upgrade from "./Upgrade";
 
 const UpgradeContainer = (props) => {
-    // let upgrades = props.data.map(upgrade=> {
-    //     return (
-    //         <Upgrade name={upgrade.name} cost={upgrade.cost} src={upgrade.image} />
-    //         )
-    // })
+    let upgrades = props.upgrades.map((upgrade, index) => {
+        return (
+            <Upgrade upgrade={upgrade}
+            setIdleBones={props.setIdleBones}
+            setBones={props.setBones}
+            bones={props.bones}
+            key={index}
+            />
+            )
+    })
+    
     return(
         <div className="upgrade-container">
-            UpgradeContainer
-            <Upgrade name={"bone-shovel"} 
-                // cost={1} 
-                src={""} 
-                setIdleBones = {props.setIdleBones}
-                increase = {2}     />
-            {/* {upgrades} */}
+            {upgrades}
         </div>
     )
 }

@@ -1,14 +1,19 @@
 
 
 const Upgrade = (props) => {
+    const upgrade = props.upgrade;
     return(
-        <div className="upgrade" onClick={() => {props.setIdleBones(old => old + props.increase)}}>
-            {/* add onclick for upgrade */}
-            Upgrade
-            {/* Upgrade name here */}
-            {props.name}
-            <div className="upgrade-image">image here</div>
-            {/* <div className="cost">cost here{props.cost}</div> */}
+        <div className="upgrade bg-blue-500 rounded" onClick={() => {
+                if (upgrade.currentCost <= props.bones){
+                    props.setBones(old => old - upgrade.currentCost)
+                    props.setIdleBones(old => old + upgrade.baseProduction)
+                    upgrade.incrementAmount();
+                    upgrade.setCurrentCost();
+                }
+            }}>
+            {upgrade.name}
+            {/* <div className="upgrade-image">image here</div> */}
+            <div className="cost">cost: {upgrade.currentCost} bones</div>
         </div>
     )
 }
