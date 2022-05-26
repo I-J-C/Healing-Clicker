@@ -3,7 +3,6 @@ import Footer from './components/Footer';
 import useInterval from './components/useInterval';
 import Header from './components/Header';
 import UpgradeContainer from './components/UpgradeContainer';
-// import upgrades from './upgrades';
 import { useState } from 'react';
 
 function App() {
