@@ -5,7 +5,8 @@ const Upgrade = (props) => {
     return(
         <div className="upgrade bg-blue-500 rounded" onClick={() => {
                 if (upgrade.currentCost <= props.bones){
-                    props.setBones(old => old - upgrade.currentCost)
+                    const purchase = upgrade.currentCost;
+                    props.setBones(old => old - purchase)
                     props.setIdleBones(old => old + upgrade.baseProduction)
                     upgrade.incrementAmount();
                     upgrade.setCurrentCost();

@@ -13,9 +13,10 @@ function App() {
   const [idleBones, setIdleBones] = useState(0);
 
 
-  const shovel = new Upgrade("shovel", 0, 15, 1.07, 2);
+  const shovel = new Upgrade("Shovel", 0, 15, 1.07, 1);
+  const boneBro = new Upgrade ("Bone Bro", 0, 206, 1.12, 5);
   // add other upgrades later
-  const [upgrades, setUpgrades] = useState([shovel]);
+  const [upgrades, setUpgrades] = useState([shovel, boneBro]);
 
   // constant increase by idle amount per second
   useInterval(() => {
