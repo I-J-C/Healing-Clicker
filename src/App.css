@@ -59,8 +59,10 @@
 
 .upgrade {
   display: flex;
-  flex-direction: row nowrap;
+  flex-direction: row;
+  flex-wrap: nowrap;
   flex-shrink: 0;
+  justify-content: space-evenly;
   background-color: white;
   margin-top: 3%;
   padding: 1%;
