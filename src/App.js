@@ -3,20 +3,23 @@ import Footer from './components/Footer';
 import useInterval from './components/useInterval';
 import Header from './components/Header';
 import UpgradeContainer from './components/UpgradeContainer';
-import { useState } from 'react';
+import { useState, useContext, createContext } from 'react';
+
+const UserContext = createContext();
 
 function App() {
-
-  // const [saveLoaded, setSaveLoaded] = useState(false);
+  const [token, setToken] = useState();
   const [bones, setBones] = useState(0);
   const [clickAmount, setClickAmount] = useState(1);
   const [idleBones, setIdleBones] = useState(0);
 
 
-  const shovel = new Upgrade("Shovel", 0, 15, 1.07, 1);
-  const boneBro = new Upgrade ("Bone Bro", 0, 206, 1.12, 5);
-  // add other upgrades later
-  const [upgrades, setUpgrades] = useState([shovel, boneBro]);
+  const upgradeArray = [new Upgrade("Shovel", 0, 15, 1.07, 1),
+                        new Upgrade ("Bone Bro", 0, 206, 1.12, 5),
+                        new Upgrade ("Skele Snake", 0, 600, 1.13, 15)
+                      ];
+                        
+  const [upgrades, setUpgrades] = useState(upgradeArray);
 
   // constant increase by idle amount per second
   useInterval(() => {
@@ -31,7 +34,14 @@ function App() {
   }
   return (
     <div className="App">
-      <Header />
+      <UserContext.Provider value={token}>
+      <Header
+      setUpgrades={setUpgrades}
+      setBones={setBones}
+      setToken={setToken}
+      setIdleBones={setIdleBones}
+       />
+       </UserContext.Provider>
       <div className='click-area' onClick={clickBone} >
         CLICK HERE FOR BONES
         <div>{bones}</div>
@@ -39,10 +49,12 @@ function App() {
       <div className='idle-bones'>
       bones/sec: {idleBones}
       </div>
+      
       <UpgradeContainer 
         setClickAmount={setClickAmount}
         setIdleBones={setIdleBones}
         upgrades={upgrades}
+        setUpgrades={setUpgrades}
         setBones={setBones}
         bones={bones}
         />
