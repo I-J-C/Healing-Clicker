@@ -14,9 +14,9 @@ function App() {
   const [idleBones, setIdleBones] = useState(0);
 
 
-  const upgradeArray = [new Upgrade("Shovel", 0, 15, 1.07, 1),
-                        new Upgrade ("Bone Bro", 0, 206, 1.12, 5),
-                        new Upgrade ("Skele Snake", 0, 600, 1.13, 15)
+  const upgradeArray = [new Upgrade("Shovel", 0, 15, 1.07, 1, "https://i.imgur.com/hoTeSu0.png"),
+                        new Upgrade ("Bone Bro", 0, 206, 1.12, 5, "https://i.imgur.com/jImn5VD.png"),
+                        new Upgrade ("SkeleSnake", 0, 600, 1.13, 15, "https://stardewvalleywiki.com/mediawiki/images/2/25/Snake_Skull.png")
                       ];
                         
   const [upgrades, setUpgrades] = useState(upgradeArray);
@@ -42,13 +42,17 @@ function App() {
       setIdleBones={setIdleBones}
        />
        </UserContext.Provider>
-      <div className='click-area' onClick={clickBone} >
-        CLICK HERE FOR BONES
+      <div className='main-container'>
+      <div className='click-area border' onClick={clickBone} >
+        CLICK ME!
+        <img className='bone-click' src='https://i.imgur.com/1zm0Xet.png' alt='bone' />
         <div>{bones}</div>
-      </div>
+      
       <div className='idle-bones'>
-      bones/sec: {idleBones}
+      Bones/sec: {idleBones}
       </div>
+      </div>
+      
       
       <UpgradeContainer 
         setClickAmount={setClickAmount}
@@ -58,6 +62,7 @@ function App() {
         setBones={setBones}
         bones={bones}
         />
+        </div>
       <Footer />
     </div> 
   );
@@ -66,14 +71,16 @@ function App() {
 export default App;
 
 class Upgrade {
-  constructor(name, amount, baseCost, coefficient, baseProduction) {
+  constructor(name, amount, baseCost, coefficient, baseProduction, imageURL) {
       this.name = name;
       this.amount = amount;
       this.baseCost = baseCost;
       this.coefficient = coefficient;
       this.baseProduction = baseProduction;
+      this.imageURL = imageURL;
       this.setCurrentCost();
       this.setCurrentProduction();
+      
   }
 
   setCurrentCost = () => {

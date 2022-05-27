@@ -1,8 +1,8 @@
 
 const Footer = () => {
     return(
-        <div>
-            Footer
+        <div className="footer">
+            Created by: Jessie Collado
         </div>
     )
 }

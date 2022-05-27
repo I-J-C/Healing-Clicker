@@ -16,6 +16,7 @@ const Header = () => {
         <div className="header">
             <h1>Healing Clicker</h1>
             {/* ADD SAVE BUTTON HERE */}
+            <div className='login-container'>
             <Button className="signin"
             onClick={()=>{
                 signInButton.current = true;
@@ -32,6 +33,7 @@ const Header = () => {
             >
                 Sign Up
             </Button>
+            </div>
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header>

@@ -1,9 +1,80 @@
 .App {
   text-align: center;
+  font-family: 'Griffy', cursive;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  height: 100vh;
+  background-color: #e1cdb4;
+}
+
+.header {
+  display: flex;
+  flex-direction: row nowrap;
+  justify-content: space-between;
+  margin-bottom: 5vw;
+  margin-top: 2vh;
+}
+
+.header h1 {
+  margin-left: 5vw;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: row nowrap;
+  align-items: center;
+}
+
+.login-container * {
+  margin-right: 2vw;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: row nowrap;
+}
+
+.click-area {
+  font-size: 1.7em;
+  max-width: fit-content;
+  margin-left: 2%;
+  margin-right: 2%;
+  background-image: url("https://i.imgur.com/HBIIRl6.png");
+  color: white;
+  border-radius: 20px;
+}
+
+.bone-click {
+  width: 50%;
+  margin: 0 auto;
 }
 
 .upgrade-container {
-  float: right;
+  margin: auto;
+  max-width: fit-content;
+  padding-right: 2vw;
+}
+
+.upgrade {
+  display: flex;
+  flex-direction: row nowrap;
+  flex-shrink: 0;
+  background-color: white;
+  margin-top: 3%;
+  padding: 1%;
+  border-radius: 5px;
+}
+
+.upgrade-image {
+  width: 5vw;
+}
+
+.footer {
+  text-align: right;
+  margin-right: 2%;
+  margin-bottom: 2%;
 }
 
 .App-logo {
